@@ -1,0 +1,53 @@
+
+create table exam_place(
+	exam_place_id VARCHAR(128) PRIMARY KEY,
+    exam_place_tp int,
+    exam_place_ap int default 0,
+    exam_place_nid int default 0,
+    exam_place_location VARCHAR(128)
+);
+
+CREATE table school(
+   school_code VARCHAR(128) PRIMARY KEY,
+   school_name VARCHAR(128)
+);
+
+CREATE TABLE exam(
+	exam_id varchar(128) primary key,
+    exam_name varchar(128),
+    exam_year varchar(128),
+    exam_date int,
+    exam_ampm varchar(128),
+    school_code varchar(128),
+    foreign key (school_code) references school(school_code)
+);
+
+create table overseer(
+	overseer_id varchar(128) primary key,
+    overseer_password varchar(128),
+    overseer_role varchar(128),
+    exam_id varchar(128),
+    foreign key (exam_id) references exam(exam_id)
+);
+
+create table candidate (
+    candidate_id VARCHAR(128) PRIMARY KEY,
+    candidate_name VARCHAR(128),
+    candidate_type VARCHAR(128),
+    candidate_recruit VARCHAR(128),
+    candidate_birth int,
+    candidate_attend VARCHAR(19) default '0000-00-00 00:00:00',
+    candidate_ticket_photo VARCHAR(128),
+    candidate_photo VARCHAR(128),
+    candidate_issue VARCHAR(128),
+	exam_place_id VARCHAR(128),
+	foreign key (exam_place_id) references exam_place(exam_place_id)
+);
+
+create table overseer_assign(
+	overseer_assign_id varchar(128) primary key,
+    overseer_id varchar(128),
+    exam_place_id varchar(128),
+    foreign key (overseer_id) references overseer(overseer_id),
+    foreign key (exam_place_id) references exam_place(exam_place_id)
+);

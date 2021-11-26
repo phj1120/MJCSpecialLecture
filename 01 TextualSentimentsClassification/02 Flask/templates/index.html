@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta name="viewport" content="width=devide-width, initial-scale=1">
+        <title>hello</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.1/css/bootstrap.min.css" integrity="sha512-6KY5s6UI5J7SVYuZB4S/CZMyPylqyyNZco376NM2Z8Sb8OxEdp02e1jkKk/wZxIEmjQ6DRCEBhni+gpr9c4tvA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <style>
+            body {
+                margin-top: 50px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" id="text">
+                        </div>
+                        <div class="col-md-2">
+                            <button type="button" class="btn btn-primary" id="btnConfirm">확인</button>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-12" id="result"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="alertModal" tabindex="-1" aria-labelledby="alertModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        내용을 입력하세요
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-mismiss="modal">
+                            확인
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js" integrity="sha512-nnzkI2u2Dy6HMnzMIkh7CPd1KX445z38XIu4jG1jGw7x5tSL3VBjE44dY4ihMU1ijAQV930SPM12cCFrB18sVw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.1/js/bootstrap.min.js" integrity="sha512-ewfXo9Gq53e1q1+WDTjaHAGZ8UvCWq0eXONhwDuIoaH8xz2r96uoAYaQCm1oQhnBfRXrvJztNXFsTloJfgbL5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        <script>
+            $('#btnConfirm').on('click', function() {
+                let text_value = $('#text').val();
+
+                if (!text_value) {
+                    alert('내용을 입력하세요');
+                    //$('#alertModal').show();
+                } else {
+                    //console.log(text_value);
+                    $.ajax({
+                        // main.py 실행 시 나오는 주소로 바꾸기
+                        // url: 'http://172.111.119.108:5000/inference',
+                        url: 'http://192.168.0.31:5000/inference',
+                        type: 'post',
+                        //async: true,
+                        dataType: 'json',
+                        data: {
+                            text: text_value,
+                        },
+                        //beforeSend: function(jqXHR) {},
+                        success: function(res) {
+                            let result;
+
+                            // 긍정
+                            if (res.score > 0.5) {
+                                result = (res.score * 100) + '% 확률로 긍정 리뷰입니다.';
+                            }
+                            // 부정
+                            else {
+                                result = ((1 - res.score) * 100) + '% 확률로 부정 리뷰입니다.';
+                            }
+
+                            $('#result').text(result);
+                        },
+                        //error: function(jqXHR) {},
+                        //complete: function(jqXHR) {},
+                    });
+                }
+            });
+        </script>
+    </body>
+</html>

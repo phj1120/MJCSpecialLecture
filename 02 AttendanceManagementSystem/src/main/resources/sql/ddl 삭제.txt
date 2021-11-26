@@ -1,0 +1,6 @@
+drop table overseer_assign;
+drop table candidate;
+drop table overseer;
+drop table exam;
+drop table school;
+drop table exam_place;

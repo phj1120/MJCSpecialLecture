@@ -1,0 +1,222 @@
+-- 학교(school)
+
+insert into school(school_code, school_name) 
+values("1234", "명지전문대");
+
+-- 고사장(exam_place)
+
+insert into exam_place(exam_place_id, exam_place_tp, exam_place_ap, exam_place_nid, exam_place_location) 
+values("ep01", 10, 0, 0, "공학관1");
+insert into exam_place(exam_place_id, exam_place_tp, exam_place_ap, exam_place_nid, exam_place_location) 
+values("ep02", 10, 0, 0, "공학관2");
+insert into exam_place(exam_place_id, exam_place_tp, exam_place_ap, exam_place_nid, exam_place_location) 
+values("ep03", 10, 0, 0, "공학관3");
+insert into exam_place(exam_place_id, exam_place_tp, exam_place_ap, exam_place_nid, exam_place_location) 
+values("ep04", 10, 0, 0, "공학관4");
+
+insert into exam_place(exam_place_id, exam_place_tp, exam_place_ap, exam_place_nid, exam_place_location) 
+values("ep05", 15, 0, 0, "사회복지관1");
+insert into exam_place(exam_place_id, exam_place_tp, exam_place_ap, exam_place_nid, exam_place_location) 
+values("ep06", 15, 0, 0, "사회복지관2");
+insert into exam_place(exam_place_id, exam_place_tp, exam_place_ap, exam_place_nid, exam_place_location) 
+values("ep07", 15, 0, 0, "사회복지관3");
+insert into exam_place(exam_place_id, exam_place_tp, exam_place_ap, exam_place_nid, exam_place_location) 
+values("ep08", 15, 0, 0, "사회복지관4");
+
+insert into exam_place(exam_place_id, exam_place_tp, exam_place_ap, exam_place_nid, exam_place_location) 
+values("ep09", 20, 0, 0, "예체능관1");
+insert into exam_place(exam_place_id, exam_place_tp, exam_place_ap, exam_place_nid, exam_place_location) 
+values("ep10", 20, 0, 0, "예체능관2");
+insert into exam_place(exam_place_id, exam_place_tp, exam_place_ap, exam_place_nid, exam_place_location) 
+values("ep11", 20, 0, 0, "예체능관3");
+insert into exam_place(exam_place_id, exam_place_tp, exam_place_ap, exam_place_nid, exam_place_location) 
+values("ep12", 20, 0, 0, "예체능관4");
+
+
+-- 고사(exam)
+
+insert into exam(exam_id, school_code, exam_name, exam_year, exam_date, exam_ampm) 
+values("e01", "1234", "정보처리기능사", "2021", 20210813, "오전");
+insert into exam(exam_id, school_code, exam_name, exam_year, exam_date, exam_ampm) 
+values("e02", "1234", "정보처리산업기사", "2021", 20210813, "오전");
+insert into exam(exam_id, school_code, exam_name, exam_year, exam_date, exam_ampm) 
+values("e03", "1234", "정보처리기능사", "2021", 20210813, "오후");
+
+-- 감독관(overseer)
+
+insert into overseer(overseer_id, exam_id, overseer_role, overseer_password) 
+values("o01", "e01", "메인감독관", "$2a$08$lDnHPz7eUkSi6ao14Twuau08mzhWrL4kyZGGU5xfiGALO/Vxd5DOi");
+insert into overseer(overseer_id, exam_id, overseer_role, overseer_password) 
+values("o02", "e02", "부감독관", "$2a$08$lDnHPz7eUkSi6ao14Twuau08mzhWrL4kyZGGU5xfiGALO/Vxd5DOi");
+insert into overseer(overseer_id, exam_id, overseer_role, overseer_password) 
+values("o03", "e01", "보조감독관", "$2a$08$lDnHPz7eUkSi6ao14Twuau08mzhWrL4kyZGGU5xfiGALO/Vxd5DOi");
+
+-- 감독관 지정(overseer_assign)
+
+insert into overseer_assign(overseer_assign_id, overseer_id, exam_place_id) 
+values("oa01", "o01", "ep01");
+insert into overseer_assign(overseer_assign_id, overseer_id, exam_place_id) 
+values("oa02", "o01", "ep02");
+insert into overseer_assign(overseer_assign_id, overseer_id, exam_place_id) 
+values("oa03", "o01", "ep03");
+insert into overseer_assign(overseer_assign_id, overseer_id, exam_place_id) 
+values("oa04", "o01", "ep04");
+
+insert into overseer_assign(overseer_assign_id, overseer_id, exam_place_id) 
+values("oa05", "o02", "ep05");
+insert into overseer_assign(overseer_assign_id, overseer_id, exam_place_id) 
+values("oa06", "o02", "ep06");
+insert into overseer_assign(overseer_assign_id, overseer_id, exam_place_id) 
+values("oa07", "o02", "ep07");
+insert into overseer_assign(overseer_assign_id, overseer_id, exam_place_id) 
+values("oa08", "o02", "ep08");
+
+insert into overseer_assign(overseer_assign_id, overseer_id, exam_place_id) 
+values("oa09", "o03", "ep09");
+insert into overseer_assign(overseer_assign_id, overseer_id, exam_place_id) 
+values("oa10", "o03", "ep10");
+insert into overseer_assign(overseer_assign_id, overseer_id, exam_place_id) 
+values("oa11", "o03", "ep11");
+insert into overseer_assign(overseer_assign_id, overseer_id, exam_place_id) 
+values("oa12", "o03", "ep12");
+
+
+-- 응시자(candidate)
+
+insert into candidate(candidate_id, exam_place_id, candidate_name, candidate_type, candidate_recruit, candidate_birth, candidate_ticket_photo) 
+values("c01", "ep01", "김공학01", "전형", "모집단위", 20001001, "ticketPhoto");
+insert into candidate(candidate_id, exam_place_id, candidate_name, candidate_type, candidate_recruit, candidate_birth, candidate_ticket_photo) 
+values("c02", "ep01", "김공학02", "전형", "모집단위", 20001002, "ticketPhoto");
+insert into candidate(candidate_id, exam_place_id, candidate_name, candidate_type, candidate_recruit, candidate_birth, candidate_ticket_photo) 
+values("c03", "ep01", "김공학03", "전형", "모집단위", 20001003, "ticketPhoto");
+insert into candidate(candidate_id, exam_place_id, candidate_name, candidate_type, candidate_recruit, candidate_birth, candidate_ticket_photo) 
+values("c04", "ep01", "김공학04", "전형", "모집단위", 20001004, "ticketPhoto");
+insert into candidate(candidate_id, exam_place_id, candidate_name, candidate_type, candidate_recruit, candidate_birth, candidate_ticket_photo) 
+values("c05", "ep01", "김공학05", "전형", "모집단위", 20001005, "ticketPhoto");
+
+insert into candidate(candidate_id, exam_place_id, candidate_name, candidate_type, candidate_recruit, candidate_birth, candidate_ticket_photo) 
+values("c06", "ep02", "김공학06", "전형", "모집단위", 20001006, "ticketPhoto");
+insert into candidate(candidate_id, exam_place_id, candidate_name, candidate_type, candidate_recruit, candidate_birth, candidate_ticket_photo) 
+values("c07", "ep02", "김공학07", "전형", "모집단위", 20001007, "ticketPhoto");
+insert into candidate(candidate_id, exam_place_id, candidate_name, candidate_type, candidate_recruit, candidate_birth, candidate_ticket_photo) 
+values("c08", "ep02", "김공학08", "전형", "모집단위", 20001008, "ticketPhoto");
+insert into candidate(candidate_id, exam_place_id, candidate_name, candidate_type, candidate_recruit, candidate_birth, candidate_ticket_photo) 
+values("c09", "ep02", "김공학09", "전형", "모집단위", 20001009, "ticketPhoto");
+insert into candidate(candidate_id, exam_place_id, candidate_name, candidate_type, candidate_recruit, candidate_birth, candidate_ticket_photo) 
+values("c10", "ep02", "김공학10", "전형", "모집단위", 20001010, "ticketPhoto");
+
+insert into candidate(candidate_id, exam_place_id, candidate_name, candidate_type, candidate_recruit, candidate_birth, candidate_ticket_photo) 
+values("c11", "ep03", "김공학11", "전형", "모집단위", 20001011, "ticketPhoto");
+insert into candidate(candidate_id, exam_place_id, candidate_name, candidate_type, candidate_recruit, candidate_birth, candidate_ticket_photo) 
+values("c12", "ep03", "김공학12", "전형", "모집단위", 20001012, "ticketPhoto");
+insert into candidate(candidate_id, exam_place_id, candidate_name, candidate_type, candidate_recruit, candidate_birth, candidate_ticket_photo) 
+values("c13", "ep03", "김공학13", "전형", "모집단위", 20001013, "ticketPhoto");
+insert into candidate(candidate_id, exam_place_id, candidate_name, candidate_type, candidate_recruit, candidate_birth, candidate_ticket_photo) 
+values("c14", "ep03", "김공학14", "전형", "모집단위", 20001014, "ticketPhoto");
+insert into candidate(candidate_id, exam_place_id, candidate_name, candidate_type, candidate_recruit, candidate_birth, candidate_ticket_photo) 
+values("c15", "ep03", "김공학15", "전형", "모집단위", 20001015, "ticketPhoto");
+
+insert into candidate(candidate_id, exam_place_id, candidate_name, candidate_type, candidate_recruit, candidate_birth, candidate_ticket_photo) 
+values("c16", "ep04", "김공학16", "전형", "모집단위", 20001016, "ticketPhoto");
+insert into candidate(candidate_id, exam_place_id, candidate_name, candidate_type, candidate_recruit, candidate_birth, candidate_ticket_photo) 
+values("c17", "ep04", "김공학17", "전형", "모집단위", 20001017, "ticketPhoto");
+insert into candidate(candidate_id, exam_place_id, candidate_name, candidate_type, candidate_recruit, candidate_birth, candidate_ticket_photo) 
+values("c18", "ep04", "김공학18", "전형", "모집단위", 20001018, "ticketPhoto");
+insert into candidate(candidate_id, exam_place_id, candidate_name, candidate_type, candidate_recruit, candidate_birth, candidate_ticket_photo) 
+values("c19", "ep04", "김공학19", "전형", "모집단위", 20001019, "ticketPhoto");
+insert into candidate(candidate_id, exam_place_id, candidate_name, candidate_type, candidate_recruit, candidate_birth, candidate_ticket_photo) 
+values("c20", "ep04", "김공학20", "전형", "모집단위", 20001020, "ticketPhoto");
+
+
+
+
+insert into candidate(candidate_id, exam_place_id, candidate_name, candidate_type, candidate_recruit, candidate_birth, candidate_ticket_photo) 
+values("c21", "ep05", "김사복01", "전형", "모집단위", 20001001, "ticketPhoto");
+insert into candidate(candidate_id, exam_place_id, candidate_name, candidate_type, candidate_recruit, candidate_birth, candidate_ticket_photo) 
+values("c22", "ep05", "김사복02", "전형", "모집단위", 20001002, "ticketPhoto");
+insert into candidate(candidate_id, exam_place_id, candidate_name, candidate_type, candidate_recruit, candidate_birth, candidate_ticket_photo) 
+values("c23", "ep05", "김사복03", "전형", "모집단위", 20001003, "ticketPhoto");
+insert into candidate(candidate_id, exam_place_id, candidate_name, candidate_type, candidate_recruit, candidate_birth, candidate_ticket_photo) 
+values("c24", "ep05", "김사복04", "전형", "모집단위", 20001004, "ticketPhoto");
+insert into candidate(candidate_id, exam_place_id, candidate_name, candidate_type, candidate_recruit, candidate_birth, candidate_ticket_photo) 
+values("c25", "ep05", "김사복05", "전형", "모집단위", 20001005, "ticketPhoto");
+
+insert into candidate(candidate_id, exam_place_id, candidate_name, candidate_type, candidate_recruit, candidate_birth, candidate_ticket_photo) 
+values("c26", "ep06", "김사복06", "전형", "모집단위", 20001006, "ticketPhoto");
+insert into candidate(candidate_id, exam_place_id, candidate_name, candidate_type, candidate_recruit, candidate_birth, candidate_ticket_photo) 
+values("c27", "ep06", "김사복07", "전형", "모집단위", 20001007, "ticketPhoto");
+insert into candidate(candidate_id, exam_place_id, candidate_name, candidate_type, candidate_recruit, candidate_birth, candidate_ticket_photo) 
+values("c28", "ep06", "김사복08", "전형", "모집단위", 20001008, "ticketPhoto");
+insert into candidate(candidate_id, exam_place_id, candidate_name, candidate_type, candidate_recruit, candidate_birth, candidate_ticket_photo) 
+values("c29", "ep06", "김사복09", "전형", "모집단위", 20001009, "ticketPhoto");
+insert into candidate(candidate_id, exam_place_id, candidate_name, candidate_type, candidate_recruit, candidate_birth, candidate_ticket_photo) 
+values("c30", "ep06", "김사복10", "전형", "모집단위", 20001010, "ticketPhoto");
+
+insert into candidate(candidate_id, exam_place_id, candidate_name, candidate_type, candidate_recruit, candidate_birth, candidate_ticket_photo) 
+values("c31", "ep07", "김사복11", "전형", "모집단위", 20001011, "ticketPhoto");
+insert into candidate(candidate_id, exam_place_id, candidate_name, candidate_type, candidate_recruit, candidate_birth, candidate_ticket_photo) 
+values("c32", "ep07", "김사복12", "전형", "모집단위", 20001012, "ticketPhoto");
+insert into candidate(candidate_id, exam_place_id, candidate_name, candidate_type, candidate_recruit, candidate_birth, candidate_ticket_photo) 
+values("c33", "ep07", "김사복13", "전형", "모집단위", 20001013, "ticketPhoto");
+insert into candidate(candidate_id, exam_place_id, candidate_name, candidate_type, candidate_recruit, candidate_birth, candidate_ticket_photo) 
+values("c34", "ep07", "김사복14", "전형", "모집단위", 20001014, "ticketPhoto");
+insert into candidate(candidate_id, exam_place_id, candidate_name, candidate_type, candidate_recruit, candidate_birth, candidate_ticket_photo) 
+values("c35", "ep07", "김사복15", "전형", "모집단위", 20001015, "ticketPhoto");
+
+insert into candidate(candidate_id, exam_place_id, candidate_name, candidate_type, candidate_recruit, candidate_birth, candidate_ticket_photo) 
+values("c36", "ep08", "김사복16", "전형", "모집단위", 20001016, "ticketPhoto");
+insert into candidate(candidate_id, exam_place_id, candidate_name, candidate_type, candidate_recruit, candidate_birth, candidate_ticket_photo) 
+values("c37", "ep08", "김사복17", "전형", "모집단위", 20001017, "ticketPhoto");
+insert into candidate(candidate_id, exam_place_id, candidate_name, candidate_type, candidate_recruit, candidate_birth, candidate_ticket_photo) 
+values("c38", "ep08", "김사복18", "전형", "모집단위", 20001018, "ticketPhoto");
+insert into candidate(candidate_id, exam_place_id, candidate_name, candidate_type, candidate_recruit, candidate_birth, candidate_ticket_photo) 
+values("c39", "ep08", "김사복19", "전형", "모집단위", 20001019, "ticketPhoto");
+insert into candidate(candidate_id, exam_place_id, candidate_name, candidate_type, candidate_recruit, candidate_birth, candidate_ticket_photo) 
+values("c40", "ep08", "김사복20", "전형", "모집단위", 20001020, "ticketPhoto");
+
+
+
+
+insert into candidate(candidate_id, exam_place_id, candidate_name, candidate_type, candidate_recruit, candidate_birth, candidate_ticket_photo) 
+values("c41", "ep09", "김예능01", "전형", "모집단위", 20001001, "ticketPhoto");
+insert into candidate(candidate_id, exam_place_id, candidate_name, candidate_type, candidate_recruit, candidate_birth, candidate_ticket_photo) 
+values("c42", "ep09", "김예능02", "전형", "모집단위", 20001002, "ticketPhoto");
+insert into candidate(candidate_id, exam_place_id, candidate_name, candidate_type, candidate_recruit, candidate_birth, candidate_ticket_photo) 
+values("c43", "ep09", "김예능03", "전형", "모집단위", 20001003, "ticketPhoto");
+insert into candidate(candidate_id, exam_place_id, candidate_name, candidate_type, candidate_recruit, candidate_birth, candidate_ticket_photo) 
+values("c44", "ep09", "김예능04", "전형", "모집단위", 20001004, "ticketPhoto");
+insert into candidate(candidate_id, exam_place_id, candidate_name, candidate_type, candidate_recruit, candidate_birth, candidate_ticket_photo) 
+values("c45", "ep09", "김예능05", "전형", "모집단위", 20001005, "ticketPhoto");
+
+insert into candidate(candidate_id, exam_place_id, candidate_name, candidate_type, candidate_recruit, candidate_birth, candidate_ticket_photo) 
+values("c46", "ep10", "김예능06", "전형", "모집단위", 20001006, "ticketPhoto");
+insert into candidate(candidate_id, exam_place_id, candidate_name, candidate_type, candidate_recruit, candidate_birth, candidate_ticket_photo) 
+values("c47", "ep10", "김예능07", "전형", "모집단위", 20001007, "ticketPhoto");
+insert into candidate(candidate_id, exam_place_id, candidate_name, candidate_type, candidate_recruit, candidate_birth, candidate_ticket_photo) 
+values("c48", "ep10", "김예능08", "전형", "모집단위", 20001008, "ticketPhoto");
+insert into candidate(candidate_id, exam_place_id, candidate_name, candidate_type, candidate_recruit, candidate_birth, candidate_ticket_photo) 
+values("c49", "ep10", "김예능09", "전형", "모집단위", 20001009, "ticketPhoto");
+insert into candidate(candidate_id, exam_place_id, candidate_name, candidate_type, candidate_recruit, candidate_birth, candidate_ticket_photo) 
+values("c50", "ep10", "김예능10", "전형", "모집단위", 20001010, "ticketPhoto");
+
+insert into candidate(candidate_id, exam_place_id, candidate_name, candidate_type, candidate_recruit, candidate_birth, candidate_ticket_photo) 
+values("c51", "ep11", "김예능11", "전형", "모집단위", 20001011, "ticketPhoto");
+insert into candidate(candidate_id, exam_place_id, candidate_name, candidate_type, candidate_recruit, candidate_birth, candidate_ticket_photo) 
+values("c52", "ep11", "김예능12", "전형", "모집단위", 20001012, "ticketPhoto");
+insert into candidate(candidate_id, exam_place_id, candidate_name, candidate_type, candidate_recruit, candidate_birth, candidate_ticket_photo) 
+values("c53", "ep11", "김예능13", "전형", "모집단위", 20001013, "ticketPhoto");
+insert into candidate(candidate_id, exam_place_id, candidate_name, candidate_type, candidate_recruit, candidate_birth, candidate_ticket_photo) 
+values("c54", "ep11", "김예능14", "전형", "모집단위", 20001014, "ticketPhoto");
+insert into candidate(candidate_id, exam_place_id, candidate_name, candidate_type, candidate_recruit, candidate_birth, candidate_ticket_photo) 
+values("c55", "ep11", "김예능15", "전형", "모집단위", 20001015, "ticketPhoto");
+
+insert into candidate(candidate_id, exam_place_id, candidate_name, candidate_type, candidate_recruit, candidate_birth, candidate_ticket_photo) 
+values("c56", "ep12", "김예능16", "전형", "모집단위", 20001016, "ticketPhoto");
+insert into candidate(candidate_id, exam_place_id, candidate_name, candidate_type, candidate_recruit, candidate_birth, candidate_ticket_photo) 
+values("c57", "ep12", "김예능17", "전형", "모집단위", 20001017, "ticketPhoto");
+insert into candidate(candidate_id, exam_place_id, candidate_name, candidate_type, candidate_recruit, candidate_birth, candidate_ticket_photo) 
+values("c58", "ep12", "김예능18", "전형", "모집단위", 20001018, "ticketPhoto");
+insert into candidate(candidate_id, exam_place_id, candidate_name, candidate_type, candidate_recruit, candidate_birth, candidate_ticket_photo) 
+values("c59", "ep12", "김예능19", "전형", "모집단위", 20001019, "ticketPhoto");
+insert into candidate(candidate_id, exam_place_id, candidate_name, candidate_type, candidate_recruit, candidate_birth, candidate_ticket_photo) 
+values("c60", "ep12", "김예능20", "전형", "모집단위", 20001020, "ticketPhoto");

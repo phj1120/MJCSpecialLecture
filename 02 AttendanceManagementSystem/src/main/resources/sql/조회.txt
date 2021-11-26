@@ -1,0 +1,6 @@
+select * from overseer_assign;
+select * from candidate;
+select * from overseer;
+select * from exam;
+select * from school;
+select * from exam_place;

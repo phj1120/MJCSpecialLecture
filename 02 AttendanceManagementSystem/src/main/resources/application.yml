@@ -1,0 +1,40 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+spring:
+  datasource:
+#    sql date 처리시 0000-00-00 처리를 위해 zeroDateTimeBehavior=convertToNull
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+
+#    로컬 호스트
+    url: jdbc:mysql://localhost:3306/4this_oms_3?characterEncoding=UTF-8&serverTimezone=Asia/Seoul&zeroDateTimeBehavior=convertToNull
+
+#    집 서버
+#    url: jdbc:mysql://jun.parkh.xyz:11203/4this_oms_test3?characterEncoding=UTF-8&serverTimezone=Asia/Seoul&zeroDateTimeBehavior=convertToNull
+
+#    라즈베리파이
+#    url: jdbc:mysql://192.168.137.51:3306/4this_oms_test3?characterEncoding=UTF-8&serverTimezone=Asia/Seoul&zeroDateTimeBehavior=convertToNull
+
+    username: root
+    password: root
+
+  jwt:
+#    secret: mluRK6JuiHv0dXRvTmLXNwcZS1mlu145yp3dC1CT3FFvKm
+    secret: c2lsdmVybmluZS10ZWNoLXNwcmluZy1ib290LWp3dC10dXRvcmlhbC1zZWNyZXQtc2lsdmVybmluZS10ZWNoLXNwcmluZy1ib290LWp3dC10dXRvcmlhbC1zZWNyZXQK
+
+#  jpa:
+#    hibernate:
+#      ddl-auto: none #create update none
+#      naming:
+#        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+#    show-sql: true
+
+logging:
+  level:
+    me.silvernine: DEBUG
