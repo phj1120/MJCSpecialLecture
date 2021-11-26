@@ -4,7 +4,7 @@
 토이프로젝트 리뷰를 통한 전공 진로 탐색
 
 ### 강의 자료
-https://www.notion.so/parkhj/bfb71de5c2fb462baf7b28b88aff1d1d
+https://parkhj.notion.site/bfb71de5c2fb462baf7b28b88aff1d1d
 
 ## 설명
 
