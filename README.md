@@ -22,18 +22,23 @@ https://www.notion.so/parkhj/bfb71de5c2fb462baf7b28b88aff1d1d
 ### 파이썬 활용
 
 * 90 YOLO
+
 https://colab.research.google.com/drive/1JxVSKZCtTDyHGKcjv1GN6Lcl78-rYD1o#scrollTo=AORz9dHs7_kc](https://colab.research.google.com/drive/1JxVSKZCtTDyHGKcjv1GN6Lcl78-rYD1o#scrollTo=AORz9dHs7_kc
 
 * 96 HTTP
+
 HTTP
 
 * 97 pymysql
+
 MySQL
 
 * 98 Raspberry Pi
+
 라즈베리 파이
 
 * 99 crawler
+
 크롤링
 
 
